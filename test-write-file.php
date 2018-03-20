@@ -1,4 +1,5 @@
 <?php
+echo $abc;
 $fp = fopen("bloco1.txt", "a");
 
 // Escreve "exemplo de escrita" no bloco1.txt
