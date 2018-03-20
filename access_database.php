@@ -1,4 +1,7 @@
 <?php
+use Silex\Application;
+
+$app = new Application();
 $dbopts = parse_url(getenv('DATABASE_URL'));
 $app->register(new Csanquer\Silex\PdoServiceProvider\Provider\PDOServiceProvider('pdo'),
                array(
