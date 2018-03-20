@@ -16,7 +16,6 @@ $app->register(new Csanquer\Silex\PdoServiceProvider\Provider\PDOServiceProvider
                )
 );
 
-$app->get('/db/', function() use($app) {
   $st = $app['pdo']->prepare('SELECT name FROM gps');
   $st->execute();
 
@@ -29,4 +28,3 @@ $app->get('/db/', function() use($app) {
   return $app['twig']->render('database.twig', array(
     'names' => $names
   ));
-});
