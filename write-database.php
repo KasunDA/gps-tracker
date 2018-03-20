@@ -23,6 +23,6 @@ $app->register(new Csanquer\Silex\PdoServiceProvider\Provider\PDOServiceProvider
                )
 );
   $num = rand();
-  $st = $app['pdo']->prepare('INSERT INTO gps VALUES(NULL, "TESTE ' . $num . '")');
+  $st = $app['pdo']->prepare("INSERT INTO gps VALUES(NULL, 'TESTE " . $num . "');");
   $st->execute();
 
