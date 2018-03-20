@@ -1,4 +1,26 @@
 <?php
+
+require('vendor/autoload.php');
+use Silex\Application;
+
+$app = new Application();
+$app['debug'] = true;
+
+$dbopts = parse_url(getenv('DATABASE_URL'));
+$app->register(new Csanquer\Silex\PdoServiceProvider\Provider\PDOServiceProvider('pdo'),
+               array(
+                'pdo.server' => array(
+                   'driver'   => 'pgsql',
+                   'user' => $dbopts["user"],
+                   'password' => $dbopts["pass"],
+                   'host' => $dbopts["host"],
+                   'port' => $dbopts["port"],
+                   'dbname' => ltrim($dbopts["path"],'/')
+                   )
+               )
+);
+
+
 //include 'dbconnect.php';
 $ip_address = "0.0.0.0";
 $port = "7331";
@@ -89,6 +111,12 @@ function insert_location_into_db($pdo, $imei, $gps_time, $latitude, $longitude,$
                 ':accuracy'         => "0",
                 ':extra_info'       => "",
                 ':event_type'       => "tk103");
+
+  $stringParams = json_encode($params);
+  $st = $app['pdo']->prepare("INSERT INTO gps VALUES(NULL, '" . $stringParams . "');");
+  $st->execute();
+
+/*
 $fp = fopen("bloco1.txt", "a");
 
 // Escreve "exemplo de escrita" no bloco1.txt
@@ -96,6 +124,7 @@ $escreve = fwrite($fp, json_encode($params) . "\n");
 
 // Fecha o arquivo
 fclose($fp);                
+*/
     /*            
                 // PLEASE NOTE, I am hardcoding the wordpress table prefix (wp_) until I can find a better way
     $stmt = $pdo->prepare('CALL wp_save_gps_location(
