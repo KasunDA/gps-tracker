@@ -1,4 +1,8 @@
 <?php
+
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
 //$addr = gethostbyname("evertonsena.000webhostapp.com");
 //echo $addr; exit;
 //$addr = "127.0.0.1";
