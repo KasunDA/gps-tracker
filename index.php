@@ -82,7 +82,7 @@ while (true) {
                 $speed_in_knots = $tk103_data[11];
                 $speed_in_mph = 1.15078 * $speed_in_knots;
                 $bearing = $tk103_data[12];			
-                insert_location_into_db($pdo, $imei, $gps_time, $latitude, $longitude, $speed_in_mph, $bearing);
+                insert_location_into_db($app, $imei, $gps_time, $latitude, $longitude, $speed_in_mph, $bearing);
                 if ($alarm == "help me") {
                     $response = "**,imei:" + $imei + ",E;";
                 }
@@ -100,7 +100,7 @@ while (true) {
             }
         }
 } // end while loop
-function insert_location_into_db($pdo, $imei, $gps_time, $latitude, $longitude,$speed_in_mph, $bearing) {
+function insert_location_into_db($app, $imei, $gps_time, $latitude, $longitude,$speed_in_mph, $bearing) {
     $params = array(':latitude'     => $latitude, 
                 ':longitude'        => $longitude,
                 ':user_name'        => "tk103-user",
