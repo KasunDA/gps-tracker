@@ -1,5 +1,7 @@
 {
     "require": {
-        "csanquer/pdo-service-provider": "~1.1dev"
+	"silex/silex": "^2.0.4",
+        "csanquer/pdo-service-provider": "~1.1dev",
+	"twig/twig": "^2.0"
     }
 }

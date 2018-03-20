@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "6f40358a8474404d335c02d39baf4797",
-    "content-hash": "5909462e5b581fd6258e33a0592b8355",
+    "hash": "568bb6aae14dcfe92e779d0d79c98085",
+    "content-hash": "9f9017c3f7d10cece4dab4f711ff6e7b",
     "packages": [
         {
             "name": "csanquer/pdo-service-provider",
@@ -851,6 +851,72 @@
                 "url"
             ],
             "time": "2018-02-28 21:49:22"
+        },
+        {
+            "name": "twig/twig",
+            "version": "v2.4.7",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/twigphp/Twig.git",
+                "reference": "69aacd44dbbaa3199d5afb68605c996d577896fc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/69aacd44dbbaa3199d5afb68605c996d577896fc",
+                "reference": "69aacd44dbbaa3199d5afb68605c996d577896fc",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.0",
+                "symfony/polyfill-mbstring": "~1.0"
+            },
+            "require-dev": {
+                "psr/container": "^1.0",
+                "symfony/debug": "^2.7",
+                "symfony/phpunit-bridge": "^3.3"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.4-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Twig_": "lib/"
+                },
+                "psr-4": {
+                    "Twig\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com",
+                    "homepage": "http://fabien.potencier.org",
+                    "role": "Lead Developer"
+                },
+                {
+                    "name": "Armin Ronacher",
+                    "email": "armin.ronacher@active-4.com",
+                    "role": "Project Founder"
+                },
+                {
+                    "name": "Twig Team",
+                    "homepage": "http://twig.sensiolabs.org/contributors",
+                    "role": "Contributors"
+                }
+            ],
+            "description": "Twig, the flexible, fast, and secure template language for PHP",
+            "homepage": "http://twig.sensiolabs.org",
+            "keywords": [
+                "templating"
+            ],
+            "time": "2018-03-20 04:31:17"
         }
     ],
     "packages-dev": [],
