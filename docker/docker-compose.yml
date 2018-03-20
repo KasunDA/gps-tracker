@@ -1,0 +1,26 @@
+nginx:
+  image: nginx
+  container_name: nginx-gps
+  restart: always
+  ports:
+   - "80:80"
+   - "7331:7331"
+  volumes:
+   - ./nginx_conf:/etc/nginx/conf.d
+  volumes_from:
+   - php:rw
+  links:
+   - php
+
+php:
+  #image: php:7.0
+  image: ttdev.fidelize.com.br:5000/php:latest
+  container_name: php-gps
+  restart: always 
+  command: bash -c "sed -i \"s/memory_limit = 128M/memory_limit = 512M/\" /usr/local/etc/php/php.ini && sed -i \"s/short_open_tag = Off/short_open_tag = On/\" /usr/local/etc/php/php.ini && sed -i \"s/max_execution_time = 30/max_execution_time = 300/\" /usr/local/etc/php/php.ini && php-fpm"
+  volumes:
+   - ${PWD}/../../gps-tracker:/var/www/html/gps-tracker
+   #- ${PWD}/../docker/xdebug/xdebug.ini:/usr/local/etc/php/conf.d/xdebug.ini
+  environment:
+   - XDEBUG_CONFIG=remote_host=172.17.0.1
+   - PHP_IDE_CONFIG=serverName=local
