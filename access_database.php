@@ -1,4 +1,7 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
 require('vendor/autoload.php');
 use Silex\Application;
 
@@ -39,6 +42,8 @@ $app->register(new Csanquer\Silex\PdoServiceProvider\Provider\PDOServiceProvider
     $app['monolog']->addDebug('Row ' . $row['name']);
     $names[] = $row;
   }
+
+var_dump($names);
 
   return $app['twig']->render('database.twig', array(
     'names' => $names
