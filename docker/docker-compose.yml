@@ -13,8 +13,8 @@ nginx:
    - php
 
 php:
-  #image: php:7.0
-  image: ttdev.fidelize.com.br:5000/php:latest
+  image: php
+  #image: ttdev.fidelize.com.br:5000/php:latest
   container_name: php-gps
   restart: always 
   command: bash -c "sed -i \"s/memory_limit = 128M/memory_limit = 512M/\" /usr/local/etc/php/php.ini && sed -i \"s/short_open_tag = Off/short_open_tag = On/\" /usr/local/etc/php/php.ini && sed -i \"s/max_execution_time = 30/max_execution_time = 300/\" /usr/local/etc/php/php.ini && php-fpm"
