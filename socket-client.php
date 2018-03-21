@@ -8,7 +8,7 @@ ini_set('display_errors', 1);
 //$addr = "127.0.0.1";
 //$addr = "177.149.213.240";
 $addr = "0.0.0.0";
-$port = getenv($PORT);
+$port = getenv('PORT');
 $client = stream_socket_client("tcp://$addr:$port", $errno, $errorMessage);
 if ($client === false) {
     throw new UnexpectedValueException("Failed to connect: $errorMessage");
