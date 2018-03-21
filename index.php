@@ -26,7 +26,7 @@ $app->register(new Csanquer\Silex\PdoServiceProvider\Provider\PDOServiceProvider
 
 //include 'dbconnect.php';
 $ip_address = "0.0.0.0";
-$port = "7331";
+$port = getenv($PORT);
 // open a server on port 7331
 $server = stream_socket_server("tcp://$ip_address:$port", $errno, $errorMessage);
 if ($server === false) {

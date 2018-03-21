@@ -1,2 +1,2 @@
 <?php
-echo 'testando'; 
+echo 'Porta em uso: ' . getenv($PORT);
